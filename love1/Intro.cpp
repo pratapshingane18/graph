@@ -39,6 +39,28 @@ class graph{
 
 int main(){
 
+    int n ;
+    cout<<"Enter Number of Nodes"<<endl;
+    cin>>n;
+
+    int m;
+    cout<<"Enter Number of Edges"<<endl;
+    cin>>m;
+
+    cout<<"Enter Directions"<<endl;
     
+    graph g;
+    for(int i=0; i < m; i++){
+        int u,v;
+        cin>>u>>v;
+        g.addEdge(u,v,0);
+
+    }
+
+    // printing adj list
+    cout<<"Adjecency List:"<<endl;
+
+    g.printAdjList();
+
     return 0;
 }
