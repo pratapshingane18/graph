@@ -6,18 +6,19 @@
 using namespace std;
 
 
-class graph {
+
+class graph{
     int numNodes;
     vector<vector<int>> adj;
 
     public:
-
-    graph(int Nodes){
-        numNodes = Nodes;
+    graph(int nodes){
+        int numNodes = nodes;
         adj.resize(numNodes);
+
     }
 
-    void addedge(int v, int u){
+    void addedges(int v, int u){
         adj[u].push_back(v);
         adj[v].push_back(u);
 
@@ -27,7 +28,6 @@ class graph {
         vector<bool> visited(numNodes,false);
         queue<int> qu;
 
-        
         visited[startNode] = true;
         qu.push(startNode);
 
@@ -35,21 +35,21 @@ class graph {
             int currNode = qu.front();
             qu.pop();
             cout<<currNode<<" ";
-            for(int i =0; i < adj[currNode].size(); i++){
-                 int adjNode = adj[currNode][i];
 
-                 if(!visited[adjNode]){
+            for(int i =0; i < adj[currNode].size(); i++){
+                int adjNode = adj[currNode][i];
+
+                if(!visited[adjNode]){
                     visited[adjNode] = true;
                     qu.push(adjNode);
-                  }
-
+                }
             }
-           
         }
 
-
-
     }
+
+
+
 
 };
 int main(){
@@ -63,12 +63,12 @@ int main(){
     cin>>edges;
 
     graph g(nodes);
-
+    cout<<"Enter all directions"<<endl;
     for(int i =0; i < edges; i++){
         int v,u;
-        cout<<"Enter all directions"<<endl;
+        
         cin>>v>>u;
-        g.addedge(v,u);
+        g.addedges(v,u);
     }
 
     int startNode;
